@@ -1,15 +1,1342 @@
-{
-  "version": "1.0",
-  "dialogDescription": "𝗕𝘂𝗴 𝗙𝗶𝘅𝗲𝘀 🐞
-𝗣𝗲𝗿𝗳𝗼𝗿𝗺𝗮𝗻𝗰𝗲 𝗕𝗼𝗼𝘀𝘁 ⚡
-𝗡𝗲𝘄 𝗦𝗹𝗲𝗲𝗸 𝗗𝗲𝘀𝗶𝗴𝗻 🎨
-𝗘𝗻𝗵𝗮𝗻𝗰𝗲𝗱 𝗙𝗲𝗮𝘁𝘂𝗿𝗲𝘀 🔧
-𝗜𝗺𝗽𝗿𝗼𝘃𝗲𝗱 𝗡𝗮𝘃𝗶𝗴𝗮𝘁𝗶𝗼𝗻 🔄
-𝗙𝗮𝘀𝘁𝗲𝗿 𝗟𝗼𝗮𝗱 𝗧𝗶𝗺𝗲𝘀 ⏱
-𝗢𝗽𝘁𝗶𝗺𝗶𝘇𝗲𝗱 𝗕𝗮𝘁𝘁𝗲𝗿𝘆 𝗨𝘀𝗮𝗴𝗲 🔋
-𝗦𝗲𝗰𝘂𝗿𝗶𝘁𝘆 𝗘𝗻𝗵𝗮𝗻𝗰𝗲𝗺𝗲𝗻𝘁𝘀 🔐
-𝗨𝗽𝗱𝗮𝘁𝗲𝗱 𝗖𝗼𝗻𝘁𝗲𝗻𝘁 📱
-𝗨𝗶 𝗜𝗺𝗽𝗿𝗼𝘃𝗲𝗺𝗲𝗻𝘁𝘀 ✨",
-  "dialogTitle": "Free IPTV",
-  "button": "Github Link"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#05070b">
+<meta name="color-scheme" content="dark">
+<meta name="description" content="Reacher Season 04 — Episodes 01-03">
+<title>Reacher — Season 04</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --bg:#05070b;
+  --panel:rgba(7,10,17,.78);
+  --white:#f5f6f8;
+  --muted:#8e98a8;
+  --red:#e31b23;
+  --blue:#146cff;
+  --border:rgba(255,255,255,.11);
+  --shadow:0 25px 80px rgba(0,0,0,.55);
 }
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  min-height:100vh;
+  background:var(--bg);
+  color:var(--white);
+  font-family:Inter,Arial,sans-serif;
+  overflow-x:hidden;
+}
+
+/* Background */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:-5;
+  background:
+    radial-gradient(circle at 12% 30%,rgba(0,80,255,.18),transparent 30%),
+    radial-gradient(circle at 88% 28%,rgba(220,0,25,.16),transparent 30%),
+    linear-gradient(180deg,#02040a 0%,#05070b 100%);
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  z-index:30;
+  pointer-events:none;
+  opacity:.035;
+  background:repeating-linear-gradient(
+    0deg,
+    #fff 0 1px,
+    transparent 1px 4px
+  );
+}
+
+::selection{
+  background:var(--red);
+  color:#fff;
+}
+
+/* Preloader */
+#preloader{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#020307;
+  transition:opacity .45s ease,visibility .45s ease;
+}
+
+#preloader.hide{
+  opacity:0;
+  visibility:hidden;
+}
+
+.loader{
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  border:3px solid rgba(255,255,255,.12);
+  border-top-color:#fff;
+  border-right-color:var(--red);
+  animation:spin .75s linear infinite;
+  box-shadow:0 0 30px rgba(227,27,35,.25);
+}
+
+@keyframes spin{
+  to{transform:rotate(360deg)}
+}
+
+/* Main */
+.container{
+  width:min(930px,calc(100% - 18px));
+  margin:auto;
+  padding:10px 0 100px;
+  position:relative;
+  z-index:2;
+}
+
+.topbar{
+  min-height:50px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.brand{
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.16em;
+  color:#d9dee7;
+}
+
+.brand b{
+  color:var(--red);
+  margin-right:3px;
+}
+
+.badge{
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.13em;
+  padding:7px 11px;
+  border:1px solid var(--border);
+  border-radius:999px;
+  background:rgba(0,0,0,.3);
+  backdrop-filter:blur(12px);
+}
+
+/* Hero */
+.hero{
+  position:relative;
+  overflow:hidden;
+  border:1px solid var(--border);
+  border-radius:22px;
+  background:#03060d;
+  box-shadow:var(--shadow);
+}
+
+.hero-image{
+  position:relative;
+  width:100%;
+  aspect-ratio:16/9;
+  overflow:hidden;
+  background:#070b14;
+}
+
+.hero-image img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center center;
+  filter:saturate(1.06) contrast(1.04);
+}
+
+.hero-image::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(2,5,12,0) 48%,
+      rgba(2,4,8,.32) 72%,
+      rgba(2,4,8,.88) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0,45,150,.10),
+      transparent 50%,
+      rgba(110,0,20,.12)
+    );
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  padding:28px 30px 30px;
+  margin-top:-1px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(3,5,10,.08),
+      rgba(3,5,10,.98) 22%
+    );
+}
+
+.kicker{
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:#b7c0ce;
+  margin-bottom:8px;
+}
+
+.logo{
+  font-family:Anton,Impact,sans-serif;
+  font-size:clamp(78px,16vw,165px);
+  line-height:.78;
+  letter-spacing:.015em;
+  color:#f3f3f3;
+  text-shadow:
+    5px 5px 0 #111,
+    0 0 28px rgba(255,255,255,.12);
+}
+
+.logo span{
+  color:var(--red);
+}
+
+.season{
+  margin-top:15px;
+  font-size:17px;
+  font-weight:800;
+  letter-spacing:.1em;
+}
+
+.meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  margin:14px 0 19px;
+}
+
+.meta span{
+  padding:7px 9px;
+  border-radius:6px;
+  font-size:9px;
+  font-weight:700;
+  color:#d8dee8;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.1);
+}
+
+.actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+}
+
+.btn{
+  position:relative;
+  overflow:hidden;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  padding:12px 17px;
+  border-radius:9px;
+  font-size:12px;
+  font-weight:800;
+  text-decoration:none;
+  cursor:pointer;
+  transition:transform .2s ease,filter .2s ease,background .2s ease;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+  filter:brightness(1.1);
+}
+
+.btn:active{
+  transform:scale(.98);
+}
+
+.primary{
+  color:#fff;
+  background:var(--red);
+  box-shadow:0 8px 26px rgba(227,27,35,.3);
+}
+
+.secondary{
+  color:#fff;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.14);
+}
+
+/* Sections */
+.section{
+  margin-top:16px;
+  padding:18px;
+  border-radius:18px;
+  background:var(--panel);
+  border:1px solid var(--border);
+  backdrop-filter:blur(18px);
+  box-shadow:0 18px 50px rgba(0,0,0,.25);
+}
+
+.section-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:13px;
+}
+
+.section-head h2{
+  font-size:16px;
+}
+
+.section-head small{
+  color:#8590a1;
+  font-size:9px;
+  letter-spacing:.13em;
+  text-transform:uppercase;
+}
+
+/* Continue watching */
+.continue{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  padding:12px;
+  margin-bottom:17px;
+  border-radius:13px;
+  background:
+    linear-gradient(
+      100deg,
+      rgba(227,27,35,.12),
+      rgba(255,255,255,.035)
+    );
+  border:1px solid rgba(255,255,255,.08);
+  cursor:pointer;
+  transition:.2s;
+}
+
+.continue:hover{
+  border-color:rgba(227,27,35,.4);
+  transform:translateY(-2px);
+}
+
+.play-icon{
+  width:40px;
+  height:40px;
+  flex:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:10px;
+  background:var(--red);
+  font-size:16px;
+  box-shadow:0 7px 20px rgba(227,27,35,.25);
+}
+
+.continue-info{
+  flex:1;
+  min-width:0;
+}
+
+.continue-info strong{
+  display:block;
+  font-size:12px;
+}
+
+.continue-info span{
+  display:block;
+  margin-top:4px;
+  color:#858f9f;
+  font-size:9px;
+}
+
+.progress{
+  height:3px;
+  margin-top:8px;
+  overflow:hidden;
+  border-radius:99px;
+  background:rgba(255,255,255,.1);
+}
+
+.progress i{
+  display:block;
+  width:0;
+  height:100%;
+  background:var(--red);
+}
+
+/* Episode cards */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+
+.card{
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.09);
+  border-radius:14px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.08),
+      rgba(255,255,255,.025)
+    );
+  transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  border-color:rgba(227,27,35,.48);
+  box-shadow:0 15px 32px rgba(0,0,0,.32);
+}
+
+.thumb{
+  position:relative;
+  height:145px;
+  overflow:hidden;
+  background:#07152e;
+}
+
+.thumb::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(
+      120deg,
+      rgba(0,75,190,.5),
+      transparent 45%,
+      rgba(190,0,20,.35)
+    ),
+    url("https://i.postimg.cc/RZmCsDgq/7q-QEav-H559wc7o-X-1786443303.jpg")
+    center/cover no-repeat;
+  filter:saturate(.88);
+  transform:scale(1.08);
+  transition:transform .35s ease;
+}
+
+.card:hover .thumb::before{
+  transform:scale(1.15);
+}
+
+.thumb::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.7));
+}
+
+.epnum{
+  position:absolute;
+  z-index:2;
+  left:10px;
+  bottom:8px;
+  font-family:Anton,Impact,sans-serif;
+  font-size:31px;
+  text-shadow:2px 2px #000;
+}
+
+.new{
+  position:absolute;
+  z-index:3;
+  right:8px;
+  top:8px;
+  padding:5px 7px;
+  border-radius:5px;
+  background:var(--red);
+  font-size:8px;
+  font-weight:800;
+}
+
+.card-body{
+  padding:12px;
+}
+
+.card-title{
+  font-size:12px;
+  font-weight:800;
+}
+
+.sub{
+  display:block;
+  margin-top:5px;
+  color:#818b9a;
+  font-size:9px;
+}
+
+.watch{
+  width:100%;
+  margin-top:10px;
+  padding:9px;
+  border:0;
+  border-radius:8px;
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  font-size:10px;
+  font-weight:800;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.watch:hover{
+  background:var(--red);
+}
+
+/* Info strip */
+.info-strip{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+  margin-top:16px;
+}
+
+.info{
+  padding:11px;
+  text-align:center;
+  border-radius:11px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.07);
+}
+
+.info b{
+  display:block;
+  font-size:10px;
+}
+
+.info span{
+  display:block;
+  margin-top:3px;
+  color:#7e8999;
+  font-size:8px;
+}
+
+/* Support */
+.support{
+  margin-top:16px;
+  padding:19px;
+  text-align:center;
+  border-radius:18px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(227,27,35,.12),
+      rgba(255,255,255,.03)
+    );
+  border:1px solid var(--border);
+}
+
+.support h3{
+  font-size:14px;
+  margin-bottom:6px;
+}
+
+.support p{
+  color:#a5afbe;
+  font-size:11px;
+  line-height:1.6;
+}
+
+.coffee{
+  display:inline-block;
+  margin-top:11px;
+  padding:10px 17px;
+  border-radius:9px;
+  background:var(--red);
+  color:#fff;
+  font-size:11px;
+  font-weight:800;
+  text-decoration:none;
+}
+
+/* Floating coffee */
+.float{
+  position:fixed;
+  right:17px;
+  bottom:17px;
+  z-index:9999;
+  width:47px;
+  height:47px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  background:rgba(5,8,15,.86);
+  border:1px solid rgba(255,255,255,.15);
+  backdrop-filter:blur(12px);
+  box-shadow:0 8px 28px rgba(0,0,0,.4);
+  text-decoration:none;
+  font-size:19px;
+  transition:.2s;
+}
+
+.float:hover{
+  transform:scale(1.08);
+  border-color:var(--red);
+}
+
+/* Popup */
+.popup-overlay{
+  position:fixed;
+  inset:0;
+  z-index:99998;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  background:rgba(0,0,0,.8);
+  backdrop-filter:blur(10px);
+}
+
+.popup{
+  width:min(350px,100%);
+  padding:25px;
+  border-radius:20px;
+  background:#080a10;
+  border:1px solid rgba(255,255,255,.12);
+  text-align:center;
+  box-shadow:0 25px 80px rgba(0,0,0,.7);
+  animation:popupIn .3s ease;
+}
+
+@keyframes popupIn{
+  from{
+    opacity:0;
+    transform:scale(.86);
+  }
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
+}
+
+.popup h2{
+  font-size:19px;
+  margin-bottom:8px;
+}
+
+.popup p{
+  color:#aab4c3;
+  font-size:12px;
+  line-height:1.6;
+  margin-bottom:15px;
+}
+
+.close{
+  margin-top:12px;
+  border:0;
+  background:none;
+  color:#7e8999;
+  font-size:12px;
+  cursor:pointer;
+}
+
+/* Toast */
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:22px;
+  z-index:100000;
+  transform:translate(-50%,20px);
+  opacity:0;
+  pointer-events:none;
+  padding:10px 14px;
+  border-radius:999px;
+  background:rgba(5,8,15,.94);
+  border:1px solid rgba(255,255,255,.12);
+  backdrop-filter:blur(12px);
+  color:#fff;
+  font-size:10px;
+  font-weight:700;
+  transition:.25s;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translate(-50%,0);
+}
+
+/* Ripple */
+.ripple{
+  position:absolute;
+  border-radius:50%;
+  background:rgba(255,255,255,.2);
+  transform:scale(0);
+  animation:ripple .55s ease-out;
+  pointer-events:none;
+}
+
+@keyframes ripple{
+  to{
+    transform:scale(2.5);
+    opacity:0;
+  }
+}
+
+/* Mobile */
+@media(max-width:680px){
+  .container{
+    width:calc(100% - 16px);
+  }
+
+  .hero{
+    border-radius:18px;
+  }
+
+  .hero-content{
+    padding:22px 18px 22px;
+  }
+
+  .logo{
+    font-size:clamp(66px,21vw,108px);
+  }
+
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .thumb{
+    height:155px;
+  }
+
+  .info-strip{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:380px){
+  .brand{
+    font-size:8px;
+  }
+
+  .badge{
+    font-size:8px;
+  }
+
+  .hero-content{
+    padding:20px 15px;
+  }
+
+  .actions .btn{
+    width:100%;
+  }
+}
+
+/* Accessibility */
+@media(prefers-reduced-motion:reduce){
+  *,
+  *::before,
+  *::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    scroll-behavior:auto !important;
+    transition:none !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div id="preloader">
+  <div class="loader"></div>
+</div>
+
+<div class="container">
+
+  <div class="topbar">
+    <div class="brand"><b>●</b> REACHER //👒Strawhat Stream</div>
+    <div class="badge">SEASON 04</div>
+  </div>
+
+  <section class="hero">
+
+    <div class="hero-image">
+      <img
+        src="https://i.postimg.cc/RZmCsDgq/7q-QEav-H559wc7o-X-1786443303.jpg"
+        alt="Reacher Season 04"
+        loading="eager"
+      >
+    </div>
+
+    <div class="hero-content">
+
+      <div class="kicker">
+        Prime Video Original • Action / Thriller
+      </div>
+
+      <div class="logo">
+        REACH<span>ER</span>
+      </div>
+
+      <div class="season">
+        SEASON 04
+      </div>
+
+      <div class="meta">
+        <span>1080P</span>
+        <span>WEB-DL</span>
+        <span>HD</span>
+        <span>NEW SEASON</span>
+      </div>
+
+      <div class="actions">
+
+        <a
+          class="btn primary"
+          href="#episodes"
+          onclick=""
+        >
+          ▶ WATCH NOW
+        </a>
+
+        <a
+          class="btn secondary"
+          href="#support"
+        >
+          ☕ SUPPORT CREATOR
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="section" id="episodes">
+
+    <div class="section-head">
+      <h2>Continue Watching</h2>
+      <small>Season 04</small>
+    </div>
+
+    <div
+      class="continue"
+      onclick="openEpisode('ep1')"
+      role="button"
+      tabindex="0"
+      onkeydown="if(event.key==='Enter'||event.key===' ')openEpisode('ep1')"
+    >
+
+      <div class="play-icon">
+        ▶
+      </div>
+
+      <div class="continue-info">
+
+        <strong>
+          Episode 01
+        </strong>
+
+        <span>
+          1080p • Single Episode
+        </span>
+
+        <div class="progress">
+          <i></i>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="section-head">
+      <h2>Episodes</h2>
+      <small>1080P Quality</small>
+    </div>
+
+
+    <div class="grid">
+
+      <article class="card">
+
+        <div class="thumb">
+          <span class="new">NEW</span>
+          <span class="epnum">01</span>
+        </div>
+
+        <div class="card-body">
+
+          <div class="card-title">
+            Episode 01
+          </div>
+
+          <span class="sub">
+            1080p • WEB-DL
+          </span>
+
+          <button
+            class="watch"
+            onclick="openEpisode('ep1')"
+          >
+            ▶ DOWNLOAD
+          </button>
+
+        </div>
+      </article>
+
+
+      <article class="card">
+
+        <div class="thumb">
+          <span class="new">NEW</span>
+          <span class="epnum">02</span>
+        </div>
+
+        <div class="card-body">
+
+          <div class="card-title">
+            Episode 02
+          </div>
+
+          <span class="sub">
+            1080p • WEB-DL
+          </span>
+
+          <button
+            class="watch"
+            onclick="openEpisode('ep2')"
+          >
+            ▶ DOWNLOAD
+          </button>
+
+        </div>
+      </article>
+
+
+      <article class="card">
+
+        <div class="thumb">
+          <span class="new">NEW</span>
+          <span class="epnum">03</span>
+        </div>
+
+        <div class="card-body">
+
+          <div class="card-title">
+            Episode 03
+          </div>
+
+          <span class="sub">
+            1080p • WEB-DL
+          </span>
+
+          <button
+            class="watch"
+            onclick="openEpisode('ep3')"
+          >
+            ▶ DOWNLOAD
+          </button>
+
+        </div>
+      </article>
+
+    </div>
+
+
+    <div class="info-strip">
+
+      <div class="info">
+        <b>1080P</b>
+        <span>QUALITY</span>
+      </div>
+
+      <div class="info">
+        <b>WEB-DL</b>
+        <span>FORMAT</span>
+      </div>
+
+      <div class="info">
+        <b>3</b>
+        <span>EPISODES</span>
+      </div>
+
+      <div class="info">
+        <b>HD</b>
+        <span>VIDEO</span>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section class="support" id="support">
+
+    <h3>
+      ☕ Enjoying the content?
+    </h3>
+
+    <p>
+      Support future uploads and server costs by buying me a coffee ❤️
+    </p>
+
+    <a
+      class="coffee"
+      href="https://bhokto.com.bd/pay/shihabrahman"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Buy Me Coffee
+    </a>
+
+  </section>
+
+</div>
+
+
+<a
+  class="float"
+  href="https://bhokto.com.bd/pay/shihabrahman"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Buy me coffee"
+>
+  ☕
+</a>
+
+
+<div
+  class="popup-overlay"
+  id="coffeePopup"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="coffeeTitle"
+>
+
+  <div class="popup">
+
+    <h2 id="coffeeTitle">
+      ☕ Enjoying the Content?
+    </h2>
+
+    <p>
+      Support future uploads and server costs by buying me a coffee ❤️
+    </p>
+
+    <a
+      class="coffee"
+      href="https://bhokto.com.bd/pay/shihabrahman"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Buy Me Coffee
+    </a>
+
+    <br>
+
+    <button
+      class="close"
+      onclick="closeCoffeePopup()"
+    >
+      Maybe Later
+    </button>
+
+  </div>
+
+</div>
+
+
+<div class="toast" id="toast"></div>
+
+
+<script>
+
+/* =========================================================
+   REACHER S04 — EPISODE CONFIG
+   ========================================================= */
+
+const links = {
+
+  ep1: "https://pub-bf3f21c20add43478abc1b8b3159789d.r2.dev/b90495aaa3a273c1fa0ecd6eef533a3f?token=1786528678136",
+
+  ep2: "https://pub-bf3f21c20add43478abc1b8b3159789d.r2.dev/73b21450f4d71d24b02b6b04d90fb87f?token=1786530974136",
+
+  ep3: "https://pub-bf3f21c20add43478abc1b8b3159789d.r2.dev/0bdce756943344c38d0ccc51f8905137?token=1786530986136"
+
+};
+
+
+/* =========================================================
+   SAFE EPISODE OPEN
+   ========================================================= */
+
+let openingEpisode = false;
+
+function openEpisode(key){
+
+  const url = links[key];
+
+  if(!url || url === "#"){
+    showToast("Episode unavailable.");
+    return;
+  }
+
+  if(openingEpisode){
+    return;
+  }
+
+  openingEpisode = true;
+
+  window.open(
+    url,
+    "_blank",
+    "noopener,noreferrer"
+  );
+
+  setTimeout(() => {
+    openingEpisode = false;
+  },800);
+
+}
+
+
+/* =========================================================
+   RIPPLE EFFECT
+   ========================================================= */
+
+document.addEventListener("click",event => {
+
+  const button = event.target.closest(
+    ".btn,.watch,.continue,.float,.coffee"
+  );
+
+  if(!button){
+    return;
+  }
+
+  const rect = button.getBoundingClientRect();
+
+  const size = Math.max(
+    rect.width,
+    rect.height
+  );
+
+  const ripple = document.createElement("span");
+
+  ripple.className = "ripple";
+
+  ripple.style.width = size + "px";
+  ripple.style.height = size + "px";
+
+  ripple.style.left =
+    (event.clientX - rect.left - size / 2) + "px";
+
+  ripple.style.top =
+    (event.clientY - rect.top - size / 2) + "px";
+
+  button.appendChild(ripple);
+
+  setTimeout(() => {
+    ripple.remove();
+  },600);
+
+});
+
+
+/* =========================================================
+   COFFEE POPUP
+   ========================================================= */
+
+const coffeePopup =
+  document.getElementById("coffeePopup");
+
+function closeCoffeePopup(){
+
+  coffeePopup.style.display = "none";
+
+  localStorage.setItem(
+    "coffeePopupSeen",
+    Date.now().toString()
+  );
+
+}
+
+
+function showCoffeePopup(){
+
+  coffeePopup.style.display = "flex";
+
+}
+
+
+function shouldShowCoffeePopup(){
+
+  const seen =
+    localStorage.getItem("coffeePopupSeen");
+
+  if(!seen){
+    return true;
+  }
+
+  const elapsed =
+    Date.now() - Number(seen);
+
+  return elapsed > 86400000;
+
+}
+
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+let toastTimer;
+
+function showToast(message){
+
+  const toast =
+    document.getElementById("toast");
+
+  toast.textContent = message;
+
+  toast.classList.add("show");
+
+  clearTimeout(toastTimer);
+
+  toastTimer = setTimeout(() => {
+
+    toast.classList.remove("show");
+
+  },2200);
+
+}
+
+
+/* =========================================================
+   PRELOADER
+   ========================================================= */
+
+window.addEventListener("load",() => {
+
+  setTimeout(() => {
+
+    document
+      .getElementById("preloader")
+      .classList.add("hide");
+
+  },500);
+
+
+  if(shouldShowCoffeePopup()){
+
+    setTimeout(() => {
+
+      showCoffeePopup();
+
+    },2800);
+
+  }
+
+});
+
+
+/* =========================================================
+   ESCAPE TO CLOSE POPUP
+   ========================================================= */
+
+document.addEventListener("keydown",event => {
+
+  if(event.key === "Escape"){
+
+    if(
+      coffeePopup.style.display === "flex"
+    ){
+
+      closeCoffeePopup();
+
+    }
+
+  }
+
+});
+
+
+/* =========================================================
+   KEYBOARD EPISODE SHORTCUTS
+   1 = EP1
+   2 = EP2
+   3 = EP3
+   ========================================================= */
+
+document.addEventListener("keydown",event => {
+
+  if(
+    event.target.tagName === "INPUT" ||
+    event.target.tagName === "TEXTAREA"
+  ){
+
+    return;
+
+  }
+
+  if(event.key === "1"){
+    openEpisode("ep1");
+  }
+
+  if(event.key === "2"){
+    openEpisode("ep2");
+  }
+
+  if(event.key === "3"){
+    openEpisode("ep3");
+  }
+
+});
+
+
+/* =========================================================
+   ONLINE / OFFLINE
+   ========================================================= */
+
+window.addEventListener("offline",() => {
+
+  showToast(
+    "You are offline."
+  );
+
+});
+
+
+window.addEventListener("online",() => {
+
+  showToast(
+    "Back online."
+  );
+
+});
+
+</script>
+
+</body>
+</html>
