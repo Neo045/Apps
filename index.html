@@ -72,34 +72,6 @@ body::after{
   color:#fff;
 }
 
-/* Preloader */
-#preloader{
-  position:fixed;
-  inset:0;
-  z-index:99999;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:#020307;
-  transition:opacity .45s ease,visibility .45s ease;
-}
-
-#preloader.hide{
-  opacity:0;
-  visibility:hidden;
-}
-
-.loader{
-  width:58px;
-  height:58px;
-  border-radius:50%;
-  border:3px solid rgba(255,255,255,.12);
-  border-top-color:#fff;
-  border-right-color:var(--red);
-  animation:spin .75s linear infinite;
-  box-shadow:0 0 30px rgba(227,27,35,.25);
-}
-
 @keyframes spin{
   to{transform:rotate(360deg)}
 }
@@ -960,6 +932,141 @@ body::after{
 
         </div>
       </article>
+      
+      <article class="card">
+
+        <div class="thumb">
+          <span class="new">NEW</span>
+          <span class="epnum">04</span>
+        </div>
+
+        <div class="card-body">
+
+          <div class="card-title">
+            Episode 04
+          </div>
+
+          <span class="sub">
+            1080p • WEB-DL
+          </span>
+
+          <button
+            class="watch"
+            onclick="openEpisode('ep4')"
+          >
+            ▶ DOWNLOAD
+          </button>
+
+        </div>
+      </article>
+      
+      <article class="card">
+
+        <div class="thumb">
+          <span class="new">NEW</span>
+          <span class="epnum">05</span>
+        </div>
+
+        <div class="card-body">
+
+          <div class="card-title">
+            Episode 05
+          </div>
+
+          <span class="sub">
+            1080p • WEB-DL
+          </span>
+
+          <button
+            class="watch"
+            onclick="openEpisode('ep5')"
+          >
+            ▶ DOWNLOAD
+          </button>
+
+        </div>
+      </article>
+      
+      <article class="card">
+
+        <div class="thumb">
+          <span class="new">NEW</span>
+          <span class="epnum">06</span>
+        </div>
+
+        <div class="card-body">
+
+          <div class="card-title">
+            Episode 06
+          </div>
+
+          <span class="sub">
+            1080p • WEB-DL
+          </span>
+
+          <button
+            class="watch"
+            onclick="openEpisode('ep6')"
+          >
+            ▶ DOWNLOAD
+          </button>
+
+        </div>
+      </article>
+      
+      <article class="card">
+
+        <div class="thumb">
+          <span class="new">NEW</span>
+          <span class="epnum">07</span>
+        </div>
+
+        <div class="card-body">
+
+          <div class="card-title">
+            Episode 07
+          </div>
+
+          <span class="sub">
+            1080p • WEB-DL
+          </span>
+
+          <button
+            class="watch"
+            onclick="openEpisode('ep7')"
+          >
+            ▶ DOWNLOAD
+          </button>
+
+        </div>
+      </article>
+      
+      <article class="card">
+
+        <div class="thumb">
+          <span class="new">NEW</span>
+          <span class="epnum">08</span>
+        </div>
+
+        <div class="card-body">
+
+          <div class="card-title">
+            Episode 08
+          </div>
+
+          <span class="sub">
+            1080p • WEB-DL
+          </span>
+
+          <button
+            class="watch"
+            onclick="openEpisode('ep8')"
+          >
+            ▶ DOWNLOAD
+          </button>
+
+        </div>
+      </article>
 
     </div>
 
@@ -977,7 +1084,7 @@ body::after{
       </div>
 
       <div class="info">
-        <b>3</b>
+        <b>8</b>
         <span>EPISODES</span>
       </div>
 
@@ -1078,11 +1185,21 @@ body::after{
 
 const links = {
 
-  ep1: "https://pub-bf3f21c20add43478abc1b8b3159789d.r2.dev/b90495aaa3a273c1fa0ecd6eef533a3f?token=1786528678136",
+  ep1: "https://hubcloud.ist/drive/4pkf7ok8ltl8yjb",
 
-  ep2: "https://pub-bf3f21c20add43478abc1b8b3159789d.r2.dev/73b21450f4d71d24b02b6b04d90fb87f?token=1786530974136",
+  ep2: "https://hubcloud.ist/drive/go8z84z1dbso8th",
 
-  ep3: "https://pub-bf3f21c20add43478abc1b8b3159789d.r2.dev/0bdce756943344c38d0ccc51f8905137?token=1786530986136"
+  ep3: "https://hubcloud.ist/drive/0yb6lrqttzgbgbb",
+  
+  ep4: "https://hubcloud.ist/drive/xe8axiuevxvefuj",
+  
+  ep5: "https://hubcloud.ist/drive/8hxfsajj1faojcs",
+  
+  ep6: "https://hubcloud.ist/drive/p3bde9blqgewm1e",
+  
+  ep7: "https://hubcloud.ist/drive/imnmu6dhvsz17rr",
+  
+  ep8: "https://hubcloud.ist/drive/rh8fghefggqgtoe"
 
 };
 
@@ -1232,35 +1349,6 @@ function showToast(message){
 
 }
 
-
-/* =========================================================
-   PRELOADER
-   ========================================================= */
-
-window.addEventListener("load",() => {
-
-  setTimeout(() => {
-
-    document
-      .getElementById("preloader")
-      .classList.add("hide");
-
-  },500);
-
-
-  if(shouldShowCoffeePopup()){
-
-    setTimeout(() => {
-
-      showCoffeePopup();
-
-    },2800);
-
-  }
-
-});
-
-
 /* =========================================================
    ESCAPE TO CLOSE POPUP
    ========================================================= */
@@ -1287,6 +1375,11 @@ document.addEventListener("keydown",event => {
    1 = EP1
    2 = EP2
    3 = EP3
+   4 = EP4
+   5 = EP5
+   6 = EP6
+   7 = EP7
+   8 = EP8
    ========================================================= */
 
 document.addEventListener("keydown",event => {
@@ -1310,6 +1403,21 @@ document.addEventListener("keydown",event => {
 
   if(event.key === "3"){
     openEpisode("ep3");
+    
+    if(event.key === "4"){
+    openEpisode("ep4");
+    
+    if(event.key === "5"){
+    openEpisode("ep5");
+    
+    if(event.key === "6"){
+    openEpisode("ep6");
+    
+    if(event.key === "7"){
+    openEpisode("ep7");
+    
+    if(event.key === "8"){
+    openEpisode("ep8");
   }
 
 });
